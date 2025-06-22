@@ -1,0 +1,22 @@
+コピーする編集する
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>タイマー</title></head>
+<body>
+  <h1>5分タイマー</h1>
+  <button onclick="start()">スタート</button>
+  <p id="time">5:00</p>
+
+  <script>
+    let sec = 300;
+    function start() {
+      const interval = setInterval(() => {
+        if (sec <= 0) return clearInterval(interval);
+        sec--;
+        document.getElementById("time").textContent = `${Math.floor(sec / 60)}:${(sec % 60).toString().padStart(2, '0')}`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
